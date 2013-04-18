@@ -55,20 +55,26 @@ mc_saveon() {
 mc_backup() {
    mc_saveoff
    
-   NOW=`date "+%Y-%m-%d_%Hh%M"`
-   BACKUP_FILE="$BACKUPPATH/${WORLD}_${NOW}.tar"
+   #NOW=`date "+%Y-%m-%d_%Hh%M"`
+   #BACKUP_FILE="$BACKUPPATH/${WORLD}_${NOW}.tar"
+   BACKUP_FILE     = "$BACKUPPATH/${WORLD}.tar.bz2"
+   BACKUP_FILE_OLD = "$BACKUPPATH/${WORLD}_old.tar.bz2"
+   as_user "rm -f \"$BACKUP_FILE_OLD\""
+   if [ -e "$BACKUP_FILE" ]; then 
+     as_user "mv \"$BACKUP_FILE\" \"$BACKUP_FILE_OLD\""
+   fi
    echo "Backing up minecraft world..."
    #as_user "cd $_SRVDIR && cp -r $WORLD $BACKUPPATH/${WORLD}_`date "+%Y.%m.%d_%H.%M"`"
-   as_user "tar -C \"$_SRVDIR\" -cf \"$BACKUP_FILE\" $WORLD"
+   as_user "tar -C \"$_SRVDIR\" -jcf \"$BACKUP_FILE\" $WORLD"
 
    echo "Backing up $SERVICE"
-   as_user "tar -C \"$_SRVDIR\" -rf \"$BACKUP_FILE\" $SERVICE"
+   as_user "tar -C \"$_SRVDIR\" -jrf \"$BACKUP_FILE\" $SERVICE"
    #as_user "cp \"$_SRVDIR/$SERVICE\" \"$BACKUPPATH/minecraft_server_${NOW}.jar\""
 
    mc_saveon
 
-   echo "Compressing backup..."
-   as_user "gzip -f \"$BACKUP_FILE\""
+   #echo "Compressing backup..."
+   #as_user "gzip -f \"$BACKUP_FILE\""
    echo "Done."
 }
 
