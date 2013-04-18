@@ -30,7 +30,7 @@ BACKUPENDMSG="WORLD BACKUP ENDED. Server going read-write..."
 ## Only change these if you know what you're doing
 
 # Server JAR file
-SERVERJAR=`
+SERVERJAR=/srv/minecraft/ftbserver.jar
 SERVICE=${SERVERJAR}
 
 # User to run server under
