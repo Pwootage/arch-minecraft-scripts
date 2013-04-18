@@ -3,7 +3,7 @@
 
 pkgname=minecraft-server-pwoot
 pkgver=1.0
-pkgrel=1
+pkgrel=2
 epoch=1
 pkgdesc="Minecraft server unit files and script"
 arch=(any)
@@ -22,7 +22,7 @@ source=(minecraftd
 noextract=()  
 md5sums=('a556dbffd433d6d2dcaeba33b78511c5'
          '10ceca4067bd87d81d8c93c7472d7f8c'
-         '11db8f68fa22672dbdfa882318d0424f'
+         '7df42a7b7bc168bf77bc66882224bd8c'
          '5f7fa691bf4eea8172dff4eedd312930'
          '2b41712d8446239bc455d593633acd51')
 
