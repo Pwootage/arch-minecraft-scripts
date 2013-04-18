@@ -57,8 +57,8 @@ mc_backup() {
    
    #NOW=`date "+%Y-%m-%d_%Hh%M"`
    #BACKUP_FILE="$BACKUPPATH/${WORLD}_${NOW}.tar"
-   BACKUP_FILE     = "$BACKUPPATH/${WORLD}.tar.bz2"
-   BACKUP_FILE_OLD = "$BACKUPPATH/${WORLD}_old.tar.bz2"
+   BACKUP_FILE="$BACKUPPATH/${WORLD}.tar.bz2"
+   BACKUP_FILE_OLD="$BACKUPPATH/${WORLD}_old.tar.bz2"
    as_user "rm -f \"$BACKUP_FILE_OLD\""
    if [ -e "$BACKUP_FILE" ]; then 
      as_user "mv \"$BACKUP_FILE\" \"$BACKUP_FILE_OLD\""
